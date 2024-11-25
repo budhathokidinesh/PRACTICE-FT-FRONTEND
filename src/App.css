@@ -1,0 +1,8 @@
+.wrapper {
+  height: 100vh;
+  background: black;
+  color: rgb(244, 230, 230);
+}
+.main {
+  height: calc(100vh - 100px);
+}
