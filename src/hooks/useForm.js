@@ -5,7 +5,6 @@ const handleOnChange = ({ e, form, setForm }) => {
     ...form,
     [name]: value,
   });
-  console.log(name, value);
 };
 
 const useForm = (initialState) => {
