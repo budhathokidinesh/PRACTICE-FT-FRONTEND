@@ -1,8 +1,11 @@
 .wrapper {
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background: black;
   color: rgb(244, 230, 230);
 }
 .main {
-  height: calc(100vh - 100px);
+  margin: auto;
+  width: 100%;
 }

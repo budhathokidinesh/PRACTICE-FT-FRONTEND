@@ -50,3 +50,29 @@ export const getUser = () => {
   };
   return apiProcessor(obj);
 };
+
+// Transaction api calls
+
+// Post new Transactions
+export const postNewTransaction = (data) => {
+  const obj = {
+    method: "post",
+    url: rootApiEp + "/transactions",
+    data,
+    headers: {
+      Authorization: getAccessJWT(),
+    },
+  };
+  return apiProcessor(obj);
+};
+// Fetch the Transactions of the specific users.
+export const fetchTransaction = () => {
+  const obj = {
+    method: "get",
+    url: rootApiEp + "/transactions",
+    headers: {
+      Authorization: getAccessJWT(),
+    },
+  };
+  return apiProcessor(obj);
+};

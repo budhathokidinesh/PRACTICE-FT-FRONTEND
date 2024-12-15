@@ -14,7 +14,7 @@ export const DefaultLayout = () => {
       </main>
 
       {/* footer */}
-      <Footer />
+      <Footer className="footer" />
     </div>
   );
 };

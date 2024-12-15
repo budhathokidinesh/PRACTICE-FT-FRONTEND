@@ -1,6 +1,8 @@
 import { Form, Button } from "react-bootstrap";
 import { CustomInput } from "./CustomInput";
 import useForm from "../hooks/useForm";
+import { postNewTransaction } from "../../helpers/axiosHelper";
+import { toast } from "react-toastify";
 
 const initialState = {
   type: "",
@@ -12,15 +14,24 @@ const initialState = {
 export const TransactionForm = () => {
   const { form, setForm, handleOnChange } = useForm(initialState);
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     console.log(form);
+    const pending = postNewTransaction(form);
+    toast.promise(pending, {
+      pending: "please wait ...",
+    });
+    const { status, message } = await pending;
+    toast[status](message);
+    status === "success" && setForm(initialState);
+
+    // TODO: call the function to fetch a;; transaction
   };
 
   const fields = [
     {
       label: "Title",
-      placeholder: "Salary",
+      placeholder: "Salary or Expenses",
       type: "text",
       required: true,
       name: "title",
@@ -28,7 +39,7 @@ export const TransactionForm = () => {
     },
     {
       label: "Amount",
-      placeholder: "1234",
+      placeholder: "$",
       type: "number",
       required: true,
       name: "amount",
@@ -60,7 +71,7 @@ export const TransactionForm = () => {
 
         <div className="d-grid">
           <Button variant="primary" type="submit">
-            Submit
+            Enter
           </Button>
         </div>
       </Form>
