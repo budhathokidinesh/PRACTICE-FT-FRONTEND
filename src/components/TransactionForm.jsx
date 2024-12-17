@@ -3,6 +3,7 @@ import { CustomInput } from "./CustomInput";
 import useForm from "../hooks/useForm";
 import { postNewTransaction } from "../../helpers/axiosHelper";
 import { toast } from "react-toastify";
+import { useUser } from "../context/UserContext";
 
 const initialState = {
   type: "",
@@ -13,6 +14,7 @@ const initialState = {
 
 export const TransactionForm = () => {
   const { form, setForm, handleOnChange } = useForm(initialState);
+  const { getTransactions } = useUser();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,11 @@ export const TransactionForm = () => {
     });
     const { status, message } = await pending;
     toast[status](message);
-    status === "success" && setForm(initialState);
+
+    if (status === "success") {
+      setForm(initialState);
+      getTransactions();
+    }
 
     // TODO: call the function to fetch a;; transaction
   };

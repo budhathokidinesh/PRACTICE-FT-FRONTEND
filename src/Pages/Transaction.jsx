@@ -14,11 +14,11 @@ const Transaction = () => {
   return (
     <Container className="p-5">
       <Row className="bg-dark rounded">
-        <Col md={6}>
+        <div>
           <TransactionForm />
           <hr />
           <TransactionTable />
-        </Col>
+        </div>
       </Row>
     </Container>
   );
