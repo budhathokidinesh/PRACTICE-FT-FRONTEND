@@ -14,7 +14,7 @@ const initialState = {
 
 export const TransactionForm = () => {
   const { form, setForm, handleOnChange } = useForm(initialState);
-  const { getTransactions } = useUser();
+  const { getTransactions, toggleModel } = useUser();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -28,10 +28,12 @@ export const TransactionForm = () => {
 
     if (status === "success") {
       setForm(initialState);
+      //call the function to fetch a;; transaction
       getTransactions();
-    }
 
-    // TODO: call the function to fetch a;; transaction
+      // close the model
+      toggleModel(false);
+    }
   };
 
   const fields = [
