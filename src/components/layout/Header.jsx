@@ -9,9 +9,11 @@ import { RiMoneyDollarBoxFill } from "react-icons/ri";
 import { RiDashboard3Fill } from "react-icons/ri";
 import { GrTransaction } from "react-icons/gr";
 import { useUser } from "../../context/UserContext";
+import { useState } from "react";
 
 export const Header = () => {
   const { user, setUser } = useUser();
+  const [showMenu, setShowMenu] = useState(false);
   // 1. On logout click delete accessJWT token from the local state
   const handleOnLogout = () => {
     // 2. Reset user object in the state
@@ -21,21 +23,39 @@ export const Header = () => {
   };
 
   return (
-    <Navbar expand="lg" variant="dark" className="bg-body-dark">
+    <Navbar
+      expand="lg"
+      variant="dark"
+      className="bg-body-dark"
+      expanded={showMenu}
+    >
       <Container>
         <Navbar.Brand href="#home">
           <RiMoneyDollarBoxFill className="fs-1 text-warning" />
           MONEY
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        {user?.name && <div>Welcome {user.name}</div>}
+
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setShowMenu(true)}
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {user?._id ? (
               <>
-                <Link className="nav-link" to="/dashboard">
+                <Link
+                  className="nav-link"
+                  to="/dashboard"
+                  onClick={() => setShowMenu(false)}
+                >
                   <RiDashboard3Fill /> Dashboard
                 </Link>
-                <Link className="nav-link" to="/transaction">
+                <Link
+                  className="nav-link"
+                  to="/transaction"
+                  onClick={() => setShowMenu(false)}
+                >
                   <GrTransaction /> Transaction
                 </Link>
                 <Link onClick={handleOnLogout} className="nav-link" to="/">
@@ -44,10 +64,18 @@ export const Header = () => {
               </>
             ) : (
               <>
-                <Link className="nav-link" to="/signup">
+                <Link
+                  className="nav-link"
+                  to="/signup"
+                  onClick={() => setShowMenu(false)}
+                >
                   <IoCreateOutline /> SignUp
                 </Link>
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to="/"
+                  onClick={() => setShowMenu(false)}
+                >
                   <IoLogIn /> Login
                 </Link>
               </>

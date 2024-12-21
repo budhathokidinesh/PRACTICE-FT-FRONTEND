@@ -1,5 +1,5 @@
 import "./App.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./Pages/Login";
 import { SignUp } from "./Pages/SignUp";

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { CustomInput } from "./CustomInput";
@@ -15,7 +14,7 @@ const initialState = {
 
 export const SignUpForm = () => {
   const { form, setForm, handleOnChange } = useForm(initialState);
-  // const [form, setForm] = useState({});
+
   const fields = [
     {
       label: "Name",
@@ -50,7 +49,6 @@ export const SignUpForm = () => {
       value: form.confirmPassword,
     },
   ];
-  // const handleOnChange = (e) => {
   //   const { name, value } = e.target;
   //   setForm({
   //     ...form,

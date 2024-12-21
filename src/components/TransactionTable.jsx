@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useUser } from "../context/UserContext";
 import Button from "react-bootstrap/Button";
@@ -28,12 +28,11 @@ export const TransactionTable = () => {
     });
     setDisplayTrans(filteredArg);
   };
-  console.log(idsToDelete);
 
   // Selecting the individual items
   const handleOnSelect = (e) => {
     const { checked, value } = e.target;
-    console.log(checked, value);
+
     if (value === "all") {
       checked
         ? setIdsToDelete(displayTrans.map((item) => item._id))
@@ -69,7 +68,12 @@ export const TransactionTable = () => {
       <div className="d-flex justify-content-between pt-3 mb-4">
         <div>{displayTrans.length} transaction(s) found!</div>
         <div>
-          <Form.Control input type="text" onChange={handleOnSearch} />
+          <Form.Control
+            input
+            type="text"
+            onChange={handleOnSearch}
+            placeholder="Search transactions..."
+          />
         </div>
         <div>
           <Button onClick={() => toggleModel(true)}>
@@ -114,20 +118,7 @@ export const TransactionTable = () => {
                 {t.type === "income" && <td className="in">${t.amount}</td>}
               </tr>
             ))}
-          {/* <tr>
-          <td>1</td>
-          <td>12-12-2024</td>
-          <td>Income</td>
-          <td>Salary</td>
-          <td>$1000</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>12-12-2024</td>
-          <td>Expenses</td>
-          <td>Shopping</td>
-          <td>-$200</td>
-        </tr> */}
+
           <tr className="fw-bold">
             <td colSpan={2}>Total</td>
             {balance < 0 && (

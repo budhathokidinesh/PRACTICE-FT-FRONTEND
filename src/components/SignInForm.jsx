@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { CustomInput } from "./CustomInput";
 import { toast } from "react-toastify";
-import { loginUser, postNewUser } from "../../helpers/axiosHelper";
+import { loginUser } from "../../helpers/axiosHelper";
 import useForm from "../hooks/useForm";
 import { useUser } from "../context/UserContext";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -15,7 +15,6 @@ const initialState = {
 
 export const SignInForm = () => {
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const { user, setUser } = useUser();
   const { form, handleOnChange } = useForm(initialState);
@@ -59,23 +58,14 @@ export const SignInForm = () => {
   // };
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
     const pendingRes = loginUser(form);
     toast.promise(pendingRes, {
       pending: "Please wait...",
     });
     const { status, message, user, accessJWT } = await pendingRes;
     toast[status](message);
-    console.log(user, accessJWT);
     setUser(user);
     localStorage.setItem("accessJWT", accessJWT);
-
-    // const { confirmPassword, ...rest } = form;
-    // if (confirmPassword !== rest.password) {
-    //   return toast.error("Password does not match. Please try later");
-    // }
-    // const { status, message } = await postNewUser(rest);
-    // toast[status](message);
   };
   return (
     <div className="border rounded p-5">
