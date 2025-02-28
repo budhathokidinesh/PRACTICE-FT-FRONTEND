@@ -1,23 +1,46 @@
 .wrapper {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: black;
+
   color: rgb(244, 230, 230);
 }
 .main {
-  margin: auto;
+  min-height: 75vh;
   width: 100% !important;
+  background: grey;
+}
+.transitionForm {
+  background: rgb(219, 209, 209);
+  box-shadow: 0 2px 10px rgba(201, 190, 190, 0.1);
+  color: rgb(51, 51, 51);
+}
+.signUp {
+  background: rgb(48, 48, 80);
+  width: 100%;
+}
+.login {
+  background: rgb(48, 48, 80);
+}
+.navbar {
+  background: rgb(22, 22, 25);
+}
+.footer {
+  background: rgb(22, 22, 23);
+  height: 100%;
+}
+.tips {
+  box-shadow: 4;
 }
 .table,
 tr,
 td,
 th {
   background: transparent !important;
-  color: white !important;
+  color: rgb(51, 51, 51) !important;
 }
 .in {
-  color: greenyellow !important;
+  color: green !important;
 }
 .out {
   color: red !important;

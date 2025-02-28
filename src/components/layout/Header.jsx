@@ -26,7 +26,7 @@ export const Header = () => {
     <Navbar
       expand="lg"
       variant="dark"
-      className="bg-body-dark"
+      className="bg-body-dark navbar"
       expanded={showMenu}
     >
       <Container>

@@ -4,6 +4,7 @@ import { CustomInput } from "./CustomInput";
 import { toast } from "react-toastify";
 import { postNewUser } from "../../helpers/axiosHelper";
 import useForm from "../hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -13,6 +14,7 @@ const initialState = {
 };
 
 export const SignUpForm = () => {
+  const navigate = useNavigate();
   const { form, setForm, handleOnChange } = useForm(initialState);
 
   const fields = [
@@ -66,10 +68,12 @@ export const SignUpForm = () => {
     const { status, message } = await postNewUser(rest);
     toast[status](message);
     status === "success" && setForm(initialState);
+    status === "success" && navigate("/");
   };
   return (
-    <div className="border rounded p-5">
+    <div className="border rounded p-2">
       <h4 className="mb-4">Sign Up Now!</h4>
+      <hr />
       <Form onSubmit={handleOnSubmit}>
         {fields.map((input) => (
           <CustomInput key={input.name} {...input} onChange={handleOnChange} />

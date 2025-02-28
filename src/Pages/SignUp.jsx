@@ -5,8 +5,8 @@ import { FinancialTips } from "../components/FinancialTips";
 import { SignUpForm } from "../components/SignUpForm";
 export const SignUp = () => {
   return (
-    <Container className="p-5">
-      <Row className="bg-dark rounded">
+    <Container className="p-3">
+      <Row className="signUp rounded">
         <Col>
           <FinancialTips />
         </Col>

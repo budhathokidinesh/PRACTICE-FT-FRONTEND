@@ -13,7 +13,7 @@ const Transaction = () => {
   }, []);
   return (
     <Container className="p-5">
-      <Row className="bg-dark rounded">
+      <Row className="transitionForm rounded ">
         <div>
           <CustomModel>
             <TransactionForm />

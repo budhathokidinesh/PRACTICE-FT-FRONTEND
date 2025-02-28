@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { MdAttachMoney } from "react-icons/md";
+// import { MdAttachMoney } from "react-icons/md";
+import moneyGrow from "../assets/moneyGrow.jpg";
 
 const financialTips = [
   {
@@ -58,19 +59,30 @@ export const FinancialTips = () => {
   const { tip, author } = showQuate;
   return (
     <div
-      className="d-flex flex-column justify-content-center"
+      className="d-flex flex-column justify-content-center tips"
       style={{
         height: "100%",
       }}
     >
-      <div className="mb-5">
-        <MdAttachMoney
+      <div className="mb-5  d-flex flex-column align-items-center">
+        {/* <MdAttachMoney
           className="text-success"
           style={{
             fontSize: "10rem",
           }}
-        />
-        <div>Watch your money grow!</div>
+        /> */}
+        <div>
+          <img
+            className="rounded"
+            src={moneyGrow}
+            alt=""
+            style={{
+              width: "450px",
+              height: "350px",
+            }}
+          />
+        </div>
+        <div className="mt-2">Watch your money grow!</div>
       </div>
 
       <p>{tip}</p>

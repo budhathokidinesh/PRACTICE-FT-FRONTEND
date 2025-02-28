@@ -69,7 +69,7 @@ export const SignInForm = () => {
   };
   return (
     <div className="border rounded p-5">
-      <h4 className="mb-4">Sign In Now!</h4>
+      <h4 className="mb-4">Sign In Now</h4>
       <hr />
       <Form onSubmit={handleOnSubmit}>
         {fields.map((input) => (
@@ -80,6 +80,11 @@ export const SignInForm = () => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
+        </div>
+        <div>
+          <div className="text-end my-3">
+            Don't have account? <a href="/signup">Signup now</a>
+          </div>
         </div>
       </Form>
     </div>

@@ -6,7 +6,7 @@ const DashBoard = () => {
   return (
     <Container className="p-5">
       <Row className="bg-dark rounded">
-        <Col md={6}>To do dashboard</Col>
+        <Col md={6}></Col>
       </Row>
     </Container>
   );

@@ -8,7 +8,7 @@ import { BsGraphUpArrow } from "react-icons/bs";
 export const Login = () => {
   return (
     <Container className="p-5">
-      <Row className="bg-dark p-5 rounded">
+      <Row className="login p-5 rounded">
         <Col md={6}>
           <SignInForm />
         </Col>

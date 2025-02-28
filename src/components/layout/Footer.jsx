@@ -3,11 +3,13 @@ import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/Row";
 export const Footer = () => {
   return (
-    <Container fluid className="bg-dark p-5">
+    <Container fluid className="p-5  footer">
       <Row className="text-center">
         <Col>
           &copy; Copy right all reaserved. || Made by &nbsp;
-          <a href="dineshbudhathoki.com">Dinesh Budhathoki</a>
+          <a href="http://www.dineshbudhathoki.com" target="_blank">
+            Dinesh Budhathoki
+          </a>
         </Col>
       </Row>
     </Container>
